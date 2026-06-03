@@ -2,7 +2,10 @@ from pathlib import Path
 import argparse
 
 
-def scan_java_files(project_path: str):
+def scan_java_files(project_path: str) -> list[Path]:
+    """
+    Recursively scan a project directory and return all .java files.
+    """
     root = Path(project_path)
 
     if not root.exists():
@@ -11,7 +14,8 @@ def scan_java_files(project_path: str):
     if not root.is_dir():
         raise NotADirectoryError(f"Project path is not a directory: {root}")
 
-    return list(root.rglob("*.java"))
+    java_files = list(root.rglob("*.java"))
+    return java_files
 
 
 def main():
@@ -28,12 +32,25 @@ def main():
 
     args = parser.parse_args()
 
-    java_files = scan_java_files(args.project)
+    try:
+        java_files = scan_java_files(args.project)
 
-    print(f"Java files: {len(java_files)}")
+        print(f"Java files: {len(java_files)}")
 
-    for file in java_files[:10]:
-        print(file)
+        for file in java_files[:10]:
+            print(file)
+
+        if len(java_files) > 10:
+            print(f"... and {len(java_files) - 10} more files.")
+
+    except FileNotFoundError as e:
+        print(f"[Error] {e}")
+
+    except NotADirectoryError as e:
+        print(f"[Error] {e}")
+
+    except Exception as e:
+        print(f"[Unexpected Error] {e}")
 
 
 if __name__ == "__main__":
