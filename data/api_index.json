@@ -1,0 +1,12 @@
+{
+  "User": [
+    "getName",
+    "setName"
+  ],
+  "UserService": [
+    "save",
+    "findById",
+    "User",
+    "findAll"
+  ]
+}

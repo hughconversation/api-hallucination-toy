@@ -1,2 +1,3 @@
 # api-hallucination-toy
-this is a toy project to record my preparation.
+
+This project studies project-specific API hallucination in LLM-based Java code completion.
