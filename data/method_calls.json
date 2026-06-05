@@ -1,0 +1,16 @@
+[
+  {
+    "file": "data\\sample_java_project\\src\\main\\java\\com\\example\\UserService.java",
+    "line_number": 8,
+    "receiver": "out",
+    "method": "println",
+    "line": "System.out.println(user.getName());"
+  },
+  {
+    "file": "data\\sample_java_project\\src\\main\\java\\com\\example\\UserService.java",
+    "line_number": 8,
+    "receiver": "user",
+    "method": "getName",
+    "line": "System.out.println(user.getName());"
+  }
+]
